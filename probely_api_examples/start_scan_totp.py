@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Probe.ly currently does not support TOTP login, this script is presented as a
 temporary work around.

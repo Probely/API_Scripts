@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Start a scan using the API
 

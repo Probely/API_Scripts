@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 Create a target using the API
 
@@ -10,11 +11,13 @@ support@probely.com.
 
 This example is for python 3.5
 """
-import requests
+import getpass
 from urllib.parse import urljoin
 
-username = input("Username:")
-password = input("Password:")
+import requests
+
+username = input("Username: ")
+password = getpass.getpass()
 
 api_base_url = "https://api.probely.com"
 auth_endpoint = urljoin(api_base_url, "auth-obtain/")
@@ -27,7 +30,7 @@ verification_endpoint = urljoin(api_base_url,
 response = requests.post(auth_endpoint,
                          data={'username': username, 'password': password})
 token = response.json()['token']
-headers = {'Authorization': "JWT {}".formar(token)}
+headers = {'Authorization': "JWT {}".format(token)}
 
 # Create target
 response = requests.post(target_endpoint, headers=headers)
