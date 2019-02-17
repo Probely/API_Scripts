@@ -2,8 +2,8 @@
 """
 Create a target using the API
 
-This action may only be performed by users with the required permissions,
-target API keys will no be able to create targets.
+This action may only be performed by users with the required permissions.
+Target API keys will not be able to create targets.
 
 At the moment only the user that created the account is able to create targets.
 If you require enabling other users please contact our support at
