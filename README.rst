@@ -1,8 +1,8 @@
 =====================
-Probe.ly API Examples
+Probely API Examples
 =====================
 
-Probe.ly API usage examples and suggestions.
+Probely API usage examples and suggestions.
 
 
 * Free software: MIT license
