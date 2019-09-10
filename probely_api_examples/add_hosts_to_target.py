@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 
 token = input("API Token: ")
 target_id = input("Target ID: ")
+host = 'api.example.com'
 
 headers = {
     'Authorization': "JWT {}".format(token),
@@ -18,7 +19,7 @@ endpoint = urljoin(api_base_url, "targets/{target_id}/assets/")
 response = requests.post(
     endpoint.format(target_id=target_id),
     headers=headers,
-    json={'host': 'example.com'})
+    json={'host': host})
 
 print(response.request.headers)
 
