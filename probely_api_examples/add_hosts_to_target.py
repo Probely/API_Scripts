@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 """
 Add hosts to an existing target
-
-This action may only be performed by users with the required permissions,
-target API keys will no be able to create targets.
-
 """
 import requests
 from urllib.parse import urljoin
