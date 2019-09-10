@@ -12,7 +12,7 @@ headers = {
     'Authorization': "JWT {}".format(token),
     'Content-Type': "application/json",
 }
-api_base_url = "https://api.stg.probely.com"
+api_base_url = "https://api.probely.com"
 endpoint = urljoin(api_base_url, "targets/{target_id}/assets/")
 
 response = requests.post(
