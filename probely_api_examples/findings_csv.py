@@ -8,7 +8,7 @@ from urllib.parse import urljoin
 token = input("API Token:")
 headers = {"Authorization": "JWT {}".format(token)}
 
-api_base_url = "https://api.qa.probely.com"
+api_base_url = "https://api.probely.com"
 findings_endpoint = urljoin(
     api_base_url, "findings/?include=compliance&length=10000"
 )
