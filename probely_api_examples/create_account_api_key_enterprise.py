@@ -9,7 +9,7 @@ from urllib.parse import urljoin
 username = input("Username: ")
 password = getpass.getpass()
 
-api_base_url = "http://localhost:8060"#"https://api.probely.com"
+api_base_url = "https://api.probely.com"
 auth_endpoint = urljoin(api_base_url, "enterprise/auth/obtain/")
 keys_endpoint = urljoin(api_base_url, "keys/")
 
