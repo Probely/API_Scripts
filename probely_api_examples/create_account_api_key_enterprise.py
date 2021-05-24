@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Get an API key for your account
+Create an API key for your account
 """
 import getpass
 import requests
@@ -16,7 +16,6 @@ keys_endpoint = urljoin(api_base_url, "keys/")
 # Get login token
 response = requests.post(auth_endpoint,
                          data={'username': username, 'password': password})
-print(response.json())
 token = response.json()['token']
 
 headers = {
@@ -33,6 +32,7 @@ response = requests.post(
 
 if response.status_code == 201:
     print("\nAccount API key:", response.json()['key'])
+    print("\nPlease record this key, it will not be shown again.")
 
 else:
     print('\n[%s]\n%s' %(response.status_code, response.text))
