@@ -15,7 +15,7 @@ Types of Contributions
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/probely/probely_api_examples/issues.
+Report bugs at https://github.com/probely/API_Scripts/issues.
 
 If you are reporting a bug, please include:
 
@@ -45,7 +45,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to file an issue at https://github.com/probely/probely_api_examples/issues.
+The best way to send feedback is to file an issue at https://github.com/probely/API_Scripts/issues.
 
 If you are proposing a feature:
 
@@ -57,17 +57,17 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up `probely_api_examples` for local development.
+Ready to contribute? Here's how to set up `API_Scripts` for local development.
 
-1. Fork the `probely_api_examples` repo on GitHub.
+1. Fork the `API_Scripts` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/probely_api_examples.git
+    $ git clone git@github.com:your_name_here/API_Scripts.git
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv probely_api_examples
-    $ cd probely_api_examples/
+    $ mkvirtualenv API_Scripts
+    $ cd API_Scripts/
     $ python setup.py develop
 
 4. Create a branch for local development::
@@ -78,7 +78,7 @@ Ready to contribute? Here's how to set up `probely_api_examples` for local devel
 
 5. When you're done making changes, check that your changes pass flake8::
 
-    $ flake8 probely_api_examples
+    $ flake8 API_Scripts
 
    To get flake8, just pip install it into your virtualenv.
 
