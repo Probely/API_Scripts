@@ -46,9 +46,9 @@ def main():
         return
     headers = {'Authorization': "JWT {}".format(token)}
 
-    score_str = f'score={quote(args.score)}'
-    if args.score is None:
-        score_str = ''
+    score_str = ''
+    if args.score is not None:
+        score_str = f'score={quote(args.score)}'
 
     response_assets = requests.get(
         discovery_assets_endpoint.format(score_str=score_str),
