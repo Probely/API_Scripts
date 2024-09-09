@@ -21,6 +21,11 @@ jwt_token = None
 api_base_url = 'https://api.probely.com'
 target_endpoint = urljoin(api_base_url, "targets/{target}/")
 finding_list_endpoint = urljoin(api_base_url, "targets/{target}/findings/")
+definitions_endpoint = urljoin(api_base_url, "definitions/{definition_id}")
+
+
+definitions_cache = dict()
+
 
 def map_severity(probely_severity):
     if probely_severity == 10:
@@ -32,10 +37,12 @@ def map_severity(probely_severity):
     else:
         return None
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-t', '--target', help='Target id', required=True)
-    parser.add_argument('-o', '--output', help='Output file', type=argparse.FileType('w'), required=True)
+    parser.add_argument('-o', '--output', help='Output file',
+                        type=argparse.FileType('w'), required=True)
     args = parser.parse_args()
 
     if jwt_token is None:
@@ -73,25 +80,27 @@ def main():
         'findings': []
     }
     for finding in findings_res:
-         result['findings'].append({
-             'title': finding['definition']['name'],
-             'unique_id_from_tool': finding['id'],
-             'description': finding['definition']['desc'],
-             'severity': map_severity(finding['severity']),
-             'mitigation': finding['fix'],
-             'date': datetime.strptime(finding['last_found'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d"),
-             'cve': None,
-             'cwe': None,
-             'cvssv3': finding['cvss_vector'],
-             'file_path': finding['path'],
-             'endpoints': [finding['path']],
-             'active': True if finding['state'] == 'notfixed' else False,
-             'verified': True,
-             'false_p': True if finding['state'] == 'invalid' else False
-         })
+        description = get_definition[finding["id"]]
+        result['findings'].append({
+            'title': finding['definition']['name'],
+            'unique_id_from_tool': finding['id'],
+            'description': finding['definition']['desc'],
+            'severity': map_severity(finding['severity']),
+            'mitigation': finding['fix'],
+            'date': datetime.strptime(finding['last_found'], "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d"),
+            'cve': None,
+            'cwe': description["cwe_id"],
+            'cvssv3': finding['cvss_vector'],
+            'file_path': finding['path'],
+            'endpoints': [finding['path']],
+            'active': True if finding['state'] == 'notfixed' else False,
+            'verified': True,
+            'false_p': True if finding['state'] == 'invalid' else False
+        })
 
     args.output.write(json.dumps(result, indent=2))
     print('Done')
+
 
 if __name__ == '__main__':
     main()
