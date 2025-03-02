@@ -23,6 +23,8 @@ def getSeleniumCssAndXPath(targets, target):
     css = None
     xpath = None
     for item in targets:
+        if not item or len(item) < 2:
+            return (None, None)
         if item[1] == 'css:finder':
             css = item[0].replace('css=', '')
         if item[1] == 'xpath:position':
