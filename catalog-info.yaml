@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: API_Scripts
+spec:
+  type: examples
+  lifecycle: "-"
+  owner: probely-backend
