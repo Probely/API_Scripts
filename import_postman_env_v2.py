@@ -4,6 +4,7 @@ Import postman environment file - V2
 
 To set postman environment for existing API target 
 with Postman collection schema type
+or OpenAPI API targets with custom variables
 
 """
 import argparse
